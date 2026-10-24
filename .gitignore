@@ -1,0 +1,34 @@
+# Environment variables and secrets
+.env
+*.env
+backend/.env
+
+# SQLite Databases & WAL/SHM journal files
+*.db
+*.db-*
+*.sqlite3
+*.sqlite3-*
+
+# Persistent RAG Storage & Uploads
+data/
+*.pdf
+
+# Python bytecode and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Node.js and Frontend builds
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# IDE and OS artifacts
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

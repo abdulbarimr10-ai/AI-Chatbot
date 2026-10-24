@@ -1,0 +1,27 @@
+# Primary Migrated Backend Dependencies for Python 3.14.5
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.10.0
+python-dotenv>=1.0.1
+requests>=2.32.0
+
+# LangGraph & Checkpointing
+langgraph>=0.2.30
+langgraph-checkpoint-sqlite>=2.0.0
+
+# LangChain Core & Model Integrations
+langchain-core>=0.3.0
+langchain-openai>=0.2.0
+langchain-huggingface>=1.0.0
+
+# Community Search Tool & Native Search Engine
+langchain-community>=0.3.0
+ddgs>=9.0.0
+
+# Model Context Protocol (MCP) Integration
+langchain-mcp-adapters>=0.3.0
+mcp>=1.24.0
+
+# Persistent PDF RAG & Vector Store
+pypdf>=5.0.0
+faiss-cpu>=1.9.0
