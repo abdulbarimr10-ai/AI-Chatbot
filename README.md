@@ -112,9 +112,10 @@ flowchart TD
 ## 📁 Repository Structure
 
 ```
-Chatbot/
+AI-Chatbot/
 ├── backend/
-│   ├── __init__.py              # Package marker
+│   ├── main.py                  # FastAPI application with CORS & lifespan discovery
+│   ├── requirements.txt         # Curated dependencies for Python 3.14.5
 │   ├── chatbot.py               # Unified LangGraph StateGraph, SQLite checkpoints & execution
 │   ├── mcp_manager.py           # Modular MCP Manager (local stdio discovery & tool lifecycle)
 │   ├── mcp_math_server.py       # Local stdio FastMCP Math Server (mcp_add, mcp_multiply, mcp_power)
@@ -122,25 +123,21 @@ Chatbot/
 │   ├── rag_service.py           # Persistent PDF RAG service (PdfReader, RecursiveSplitter, FAISS)
 │   ├── test_rag_integration.py  # 11-step integration test suite
 │   ├── tools.py                 # Native DuckDuckGo, Calculator, Stock Price & RAG tools
-│   ├── main.py                  # FastAPI application with lifespan discovery & CORS
-│   ├── requirements.txt         # Curated dependencies for Python 3.14.5
-│   └── .env.example             # Backend environment template
+│   ├── .env.example             # Backend environment template
+│   └── __init__.py              # Package marker
 ├── frontend/
 │   ├── src/
 │   │   ├── App.jsx              # React UI with MCP status, PDF upload/delete, API key modal
 │   │   ├── App.css              # Glassmorphic styling, animations, and modal styles
 │   │   ├── index.css            # Typography, reset, and design tokens
 │   │   └── main.jsx             # React DOM entry point
-│   ├── index.html               # HTML entry point with Inter font
+│   ├── package.json             # Frontend dependencies
 │   ├── vite.config.js           # Vite build & dev proxy configuration
-│   └── package.json             # Frontend dependencies
-├── data/
-│   └── rag/                     # Persistent FAISS indices per thread (git-ignored)
-├── .env.example                 # Root environment template
-├── .gitignore                   # Excludes databases, secrets, and caches
+│   ├── index.html               # HTML entry point with Inter font
+│   └── README.md                # Frontend documentation
+├── .gitignore                   # Excludes secrets, databases, and build artifacts
 ├── LICENSE                      # MIT License
-├── README.md                    # Project documentation
-└── requirements.txt             # Root requirements
+└── README.md                    # Project documentation
 ```
 
 ---
@@ -162,13 +159,12 @@ cd AI-Chatbot
 ```
 
 ### 2. Configure Environment Variables
-Copy `.env.example` to create your local `.env`:
+Copy `backend/.env.example` to create your local `backend/.env`:
 ```powershell
-Copy-Item .env.example .env
-Copy-Item .env.example backend\.env
+Copy-Item backend\.env.example backend\.env
 ```
 
-Open `.env` and configure your API credentials:
+Open `backend/.env` and configure your API credentials:
 ```ini
 # Primary LLM API Key (OpenAI)
 OPENAI_API_KEY=your_openai_api_key_here
